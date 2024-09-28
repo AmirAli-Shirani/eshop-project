@@ -1,0 +1,23 @@
+{% load render_partial %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% include 'shared/header-references.html' %}
+    <title>{% block title %}{% endblock %}</title>
+    {% block header_references %}{% endblock %}
+</head>
+<body>
+{% render_partial 'home_module.views.header_component' %}
+{% block content %}{% endblock %}
+
+{% include 'shared/footer-references.html' %}
+{% render_partial 'home_module.views.footer_component' %}
+{% block footer_references %}{% endblock %}
+{% load sweetify %}
+{% sweetify %}
+</body>
+</html>

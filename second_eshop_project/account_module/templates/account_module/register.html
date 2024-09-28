@@ -1,0 +1,40 @@
+{% extends 'shared/master.html' %}
+{% block title %}
+    ثبت نام
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <section id="form"><!--form-->
+            <div class="row" style="display: flex; justify-content: center">
+                <div class="col-sm-8">
+                    <div class="signup-form"><!--sign up form-->
+                        <h2>ثبت نام کاربـر جدیـد</h2>
+                        <form method="post" action="{% url 'register_page' %}">
+                            {% csrf_token %}
+                            {{ register_form.first_name.label }}
+                            {{ register_form.first_name }}
+                            {{ register_form.first_name.errors }}
+                            {{ register_form.last_name.label }}
+                            {{ register_form.last_name }}
+                            {{ register_form.last_name.errors }}
+                            {{ register_form.email.label }}
+                            {{ register_form.email }}
+                            {{ register_form.email.errors }}
+                            {{ register_form.password.label }}
+                            {{ register_form.password }}
+                            {{ register_form.password.errors }}
+                            {{ register_form.confirm_password.label }}
+                            {{ register_form.confirm_password }}
+                            {{ register_form.confirm_password.errors }}
+                            <button type="submit" class="btn btn-default">ثبت نام</button>
+                            <p style="margin-top: .7rem"><a href="{% url 'login_page' %}">حساب کاربری از قبل دارم؟</a></p>
+                        </form>
+                    </div><!--/sign up form-->
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+{#{% block footer_references %}#}
+{#    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>#}
+{#{% endblock %}#}
